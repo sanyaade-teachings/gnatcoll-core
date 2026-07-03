@@ -27,9 +27,6 @@
 
 with Interfaces.C; use Interfaces.C;
 with System;
-pragma Warnings (Off);
-with System.Parameters;
-pragma Warnings (On);
 
 package GNATCOLL.OS.Win32 is
 
@@ -46,8 +43,7 @@ package GNATCOLL.OS.Win32 is
    BOOL_FALSE : constant BOOL := 0;
    BOOL_TRUE  : constant BOOL := 1;
 
-   type LONG is range -(2 ** (System.Parameters.long_bits - Integer'(1)))
-     .. +(2 ** (System.Parameters.long_bits - Integer'(1))) - 1;
+   subtype LONG is Long_Integer;
 
    type LPBOOL is access all BOOL;
    NULL_LPBOOL : constant LPBOOL := null;
